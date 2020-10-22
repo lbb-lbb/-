@@ -9,13 +9,13 @@
                           v-model.number="loginForm.password" placeholder="请输入密码"/>
             </el-form-item>
             <el-form-item :key="3">
-                <el-button type="primary" @click="startLogin('/login',loginForm)">登陆</el-button>
+                <el-button type="primary" @click="startLogin('/user/login',loginForm)">登陆</el-button>
                 <p class="login" title="点击去注册" @click="SwitchState">没有账号？立即注册</p>
             </el-form-item>
         </el-form>
         <el-form   v-else-if="!state" ref="signForm"  :model="signForm" status-icon :rules="signRules" label-width="100px">
             <el-form-item :key="4" label="用户名" prop="name">
-                <el-input clearable  type="text" v-model="signForm.name" placeholder="请输入注册账号"/>
+                <el-input clearable  maxlength="7" show-word-limit type="text" v-model="signForm.name" placeholder="请输入注册账号"/>
             </el-form-item>
             <el-form-item  :key="5" label="密码"  prop="password">
                 <el-input clearable show-password  type="password"  v-model.number="signForm.password" placeholder="请输入注册密码"/>
@@ -27,7 +27,7 @@
                 <el-input clearable  type="email"  v-model="signForm.email" placeholder="请输入注册邮箱"/>
             </el-form-item>
             <el-form-item :key="8">
-                <el-button type="primary" @click="startSign('/sign',signForm)">注册</el-button>
+                <el-button type="primary" @click="startSign('/user/sign',signForm)">注册</el-button>
                 <p class="login" title="点击去登陆" @click="SwitchState">已有账号？立即登陆</p>
             </el-form-item>
         </el-form>
@@ -67,7 +67,7 @@
                 }
                 //向服务器查询注册用户名是否已经存在
                 if(value){
-                    http.post('/name', {name:value}).then(res =>{
+                    http.post('/user/name', {name:value}).then(res =>{
                         if(res.data.code===1){
                             callback()
                         }else {
@@ -150,7 +150,7 @@
         },
         computed: {},
         methods: {
-            ...mapMutations(['setUser']),
+            ...mapMutations(['setUser','setDetail']),
             //切换登陆注册的方法顺便切换时重置表单里面输入的信息
             SwitchState(){
               if(this.state){
@@ -196,12 +196,11 @@
                    if(valid){
                        http.post(url,data).then(res =>{
                            if(res.data.code===1){
-                               console.log(res)
                                this.setUser(res.data.user)
+                               this.setDetail(res.data.detail)
                                sessionStorage.setItem('token',res.data.token)
-                               console.log(sessionStorage.getItem('token'))
                                setTimeout(()=>{
-                                   this.$router.push({path:'/'})
+                                   this.$router.push({path:'/home'})
                                },1000)
                                this.$refs['loginForm'].resetFields()
                                this.$message({
@@ -231,11 +230,11 @@
 <style scoped>
 .el-form{
     margin: 100px auto;
-    width: 500px;
+    max-width: 300px;
     height: 500px;
 }
 .el-button{
-    width: 400px;
+    width: 200px;
 }
     p{
         color: dodgerblue;

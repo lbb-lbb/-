@@ -1,5 +1,5 @@
 /*
-一些公用的方法
+封装一些公用的方法
 */
 export const setSessionStorage= (name,data) =>{           //设置sessionsStorage数据
     if(!data) return

@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import {setSessionStorage,getSessionStorage} from "./common"
+import {setSessionStorage,getSessionStorage} from "./methods/common"
 import {mapMutations} from 'vuex'
 export default {
   components: {},
@@ -13,12 +13,11 @@ export default {
   },
   mounted() {
     window.addEventListener('beforeunload',()=>{   //监听刷新前保存好vuex数据
-      if(!this.$store.state.user.name) return
       setSessionStorage('user',this.$store.state)
     })
     window.addEventListener('load',()=>{          //监听刷新后获取之前保存的vuex数据
       if(!getSessionStorage('user')) return
-      this.setState(getSessionStorage('user'));
+      this.setState(getSessionStorage('user'))
       sessionStorage.removeItem('user')                           //及时清除保存的数据
     })
   }
@@ -28,7 +27,6 @@ export default {
 
 <style>
 *{
-  margin: 0;
-  padding: 0;
+  text-decoration: none;
 }
 </style>
