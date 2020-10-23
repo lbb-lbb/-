@@ -1,8 +1,9 @@
+基于基于vue和koa2结合mongodb搭建的博客，断断续续折腾了一个多月，我的博客系统终于可以上线了。本次搭建博客前端页面分为后台管理，前台展示
 # 技术栈
 ## 前端
 前端主要使用vue全家桶加element ui和flex布局移动端适配，配合axios与后台沟通
 ## 后端
-后端主要使用koa2框架结合mongodb数据库，使用nginx反向代理与前端沟通
+后端主要使用koa2框架结合mongodb数据库，登陆这块使用jwt的token验证，使用nginx反向代理与前端沟通
 # 博客前台展示
 博客阅读  
 ![前台pc端.png](http://47.97.60.54:3000/paper/前台pc端.png)
@@ -62,6 +63,48 @@ github:[github传送门](https://github.com/lbb-lbb/bulid-bingo)
             |---github-markdown.css         //这是markdown语法的css文件
             |---main.js                     //创建vue实例的js文件  
 ## 后台目录
+        |---koa                     //后台目录
+            |---image                   //存放上传文章图片，头像的文件夹
+                |---head                    //存放用户头像目录
+                |---paper                   //存放文章图片目录
+            |---middle                  //中间件目录
+                |---cor.js                  //koa2-cor的跨域设置
+                |---formidable.js           //解析上传图片的中间件
+                |---tokenMiddle.js          //jwt的token令牌验证中间件
+            |---router              //二级路由
+                |---blog                //有关文章的博客的路由
+                    |---bingo.js            //增删改查的路由    
+                    |---editImage.js        //文章图片上传，删除的路由
+                    |---geTitle.js          //文章列表获取路由
+                |---commentLike         //关于评论的点赞的路由
+                    |---editComment.js      //评论的增，删，获取，设已读的路由
+                    |---leaveMessageLike.js //获取留言，总点赞数的路由
+                |---show                //前台展示路由
+                    |---visitList           //返回文章路由
+                |---user                //用户路由
+                    |---checkName.js        //检测注册时名字是否存在的路由
+                    |---head.js             //头像的上传路由
+                    |---LoginSign.js        //登陆注册的路由
+                    |---updatePassword      //更新密码的路由
+                    |---updateUser          //更新用户信息的路由
+            |---app.js              //一级路由，以及托管静态图片中间件
+            |---mongodb.js          //mongodb的封装
+# 快速开始
+```
+# install dependencies 
+# 安装依赖，可以使用yarn/npm
+npm install # or yarn install
 
-# 项目中踩的一些坑
-# 项目待上线|改进功能
+# serve in dev mode, with hot reload at localhost:8889
+# 开发环境，带有HMR，监听8889端口
+npm run serve
+
+# build for production
+# 生产环境打包
+npm run build
+
+# serve in production mode (with building)
+# 生产环境服务，不带有打包
+npm start
+
+```
