@@ -16,7 +16,7 @@
 ![后台移动端.png](http://47.97.60.54:3000/paper/后台移动端.png)
 # 项目地址
 博客线上地址（域名审核没下来）：[博客线上地址](http://47.97.60.54:3000)  
-github:[github传送门](https://github.com/lbb-lbb/bulid-bingo) 
+github:[github传送门](https://github.com/lbb-lbb/bulid-bingo)  
 后台传送地址：[后台koa](https://github.com/lbb-lbb/bingo-serve-koa) 
 # 项目起源
 由于我是非科班，属于在校自学前端，断断续续学了差不多一年，临找工作前苦于找不到项目。一方面为了加强自己对前端的理解，知识的掌握程度，另外一方面是为了有点属于自己的dome，故此选择做这个属于我自己的博客。整个博客搭建的前后台以及与数据库的使用，阿里云服务器的上线部署都是自己慢慢搭建起来的。
