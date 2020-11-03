@@ -6,16 +6,16 @@
 后端主要使用koa2框架结合mongodb数据库，登陆这块使用jwt的token验证，使用nginx反向代理与前端沟通
 # 博客前台展示
 博客阅读  
-![前台pc端.png](http://47.97.60.54:3000/paper/前台pc端.png)
+![前台pc端.png](http://47.102.214.249:3000/paper/前台pc端.png)
 博客列表  
-![前台pc端2.png](http://47.97.60.54:3000/paper/前台pc端2.png)
+![前台pc端2.png](http://47.102.214.249:3000/paper/前台pc端2.png)
 # 博客后台展示
 后台pc端  
-![后台pc端.png](http://47.97.60.54:3000/paper/后台pc端.png)
+![后台pc端.png](http://47.102.214.249:3000/paper/后台pc端.png)
 后台移动端  
-![后台移动端.png](http://47.97.60.54:3000/paper/后台移动端.png)
+![后台移动端.png](http://47.102.214.249:3000/paper/后台移动端.png)
 # 项目地址
-博客线上地址（域名审核没下来）：[博客线上地址](http://47.97.60.54:3000)  
+博客线上地址（域名审核没下来）：[博客线上地址](http://47.102.214.249:3000)  
 github:[github传送门](https://github.com/lbb-lbb/bulid-bingo)  
 后台传送地址：[后台koa](https://github.com/lbb-lbb/bingo-serve-koa) 
 # 项目起源
@@ -23,9 +23,9 @@ github:[github传送门](https://github.com/lbb-lbb/bulid-bingo)
 # 博客技术分享
 ## 博客构建的路由构思
 ### 前台路由
-![博客前端路由.png](http://47.97.60.54:3000/paper/博客前端路由.png)
+![博客前端路由.png](http://47.102.214.249:3000/paper/博客前端路由.png)
 ### 后台路由
-![koa2路由 2.png](http://47.97.60.54:3000/paper/koa2路由(2).png)
+![koa2路由 2.png](http://47.102.214.249:3000/paper/koa2路由(2).png)
 后台路由中小红旗标记的路由是不需要token令牌验证的
 ## 前台目录
         |---src
